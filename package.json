@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/immortal-p/frontend-project-46#readme",
   "dependencies": {
-    "commander": "^13.1.0"
+    "commander": "^13.1.0",
+    "yaml": "^2.7.1"
   }
 }
