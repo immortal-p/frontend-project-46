@@ -2,7 +2,6 @@
 
 import { Command } from "commander";
 import parseTwoFiles from "../src/parse.js"
-import _ from 'lodash'
 
 const program = new Command();
 
@@ -15,19 +14,15 @@ const genDiff = (data1, data2) => {
     let result = '';
 
     allKeys.forEach(key => {
-        const data1Val = data1[key];
-        const data2Val = data2[key];
+        const val1 = data1[key];
+        const val2 = data2[key];
 
-        const isEqual = JSON.stringify(data1Val) === JSON.stringify(data2Val);
+        const isEqual = val1 === val2;
         if(isEqual){
-            result += `    ${key}: ${JSON.stringify(data1Val)}\n`
+            result += `    ${key}: ${val1}\n`
         }else{
-            if(data1Val !== undefined){
-                result += `  - ${key}: ${JSON.stringify(data1Val)}\n`
-            }
-            if(data2Val !== undefined) {
-                result += `  + ${key}: ${JSON.stringify(data2Val)}\n`
-            }
+            if(val1 !== undefined) result += `  - ${key}: ${val1}\n`
+            if(val2 !== undefined) result += `  + ${key}: ${val2}\n`   
         }
     });
 
