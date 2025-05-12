@@ -3,7 +3,7 @@
 import { Command } from "commander";
 import parseTwoFiles from "./parse.js"
 import genDiff from "./genDiff.js";
-
+ 
 const program = new Command();
 
 program
