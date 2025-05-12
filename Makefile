@@ -1,5 +1,5 @@
 lint:
-	npx eslint src/gendiff.js
+	npx eslint .
 
 test:
 	NODE_OPTIONS=--experimental-vm-modules npx jest
