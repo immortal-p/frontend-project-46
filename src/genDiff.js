@@ -9,7 +9,7 @@ const genDiff = (data1, data2) => {
     allKeys.forEach(key => {
         const val1 = data1[key];
         const val2 = data2[key];
-
+        
         const isEqual = val1 === val2;
         if(isEqual){
             result += `    ${key}: ${val1}\n`

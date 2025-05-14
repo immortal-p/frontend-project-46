@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 import genDiff from "../src/genDiff";
-import parseTwoFiles  from "../src/parse";
+import parseTwoFiles  from "../src/parsers";
 
 test('genDiff', () => {
-    const [file1, file2] = parseTwoFiles('file1.json', 'file2.json');
+    const [file1, file2] = parseTwoFiles('file1.json', 'file2.yaml');
     const result = `{
   - follow: false
     host: hexlet.io
@@ -15,17 +15,17 @@ test('genDiff', () => {
     expect(genDiff(file1, file2)).toEqual(result);
 })
 
-test('genDiff with empty objects', () => {
-    expect(genDiff({}, {})).toEqual('{\n}')
-})
-
 test('genDiff with different data types', () => {
-    const [file3, file4] = parseTwoFiles('file3.json', 'file4.json');
-    const result = `{
+  const [file3, file4] = parseTwoFiles('file3.json', 'file4.json');
+  const result = `{
   - age: 39
   + age: 39
   + id: 02145
     name: Reyes
 }`
     expect(genDiff(file3, file4)).toEqual(result)
+})
+
+test('genDiff with empty objects', () => {
+    expect(genDiff({}, {})).toEqual('{\n}')
 })
