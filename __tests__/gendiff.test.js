@@ -3,9 +3,9 @@ import { parsersFile, parseTwoFiles}  from "../src/parsers.js";
 import { test, expect} from '@jest/globals'
 
 test('genDiff', () => {
-    const [file1, file2] = parseTwoFiles('file1.json', 'file2.json');
-    const result = parsersFile('result1.txt')
-    expect(genDiff(file1, file2)).toEqual(result);
+  const [file1, file2] = parseTwoFiles('file1.yaml', 'file2.yaml');
+  const result = parsersFile('result1.txt')
+  expect(genDiff(file1, file2)).toEqual(result);
 })
 
 test('genDiff with different data types', () => {
@@ -14,6 +14,13 @@ test('genDiff with different data types', () => {
     expect(genDiff(file3, file4)).toEqual(result)
 })
 
+test('get absolutePath', () => {
+  const absolutePath = './__fixtures__/file2.json'
+  const file1 = parsersFile('file2.json')
+  expect(file1).toEqual(parsersFile(absolutePath))
+})
+
 test('genDiff with empty objects', () => {
     expect(genDiff({}, {})).toEqual('{\n}')
 })
+
