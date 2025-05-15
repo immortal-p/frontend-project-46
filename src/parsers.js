@@ -1,7 +1,7 @@
-/* eslint-disable no-undef */
 import path from 'path';
 import fs from 'fs';
 import yaml from 'yaml';
+import process from 'process';
 
 const FORMATS = {
   '.json': (content) => JSON.parse(content),
@@ -33,4 +33,4 @@ const parseTwoFiles = (file1, file2) => {
   ]
 }
 
-export default parseTwoFiles;
+export { parsersFile, parseTwoFiles};

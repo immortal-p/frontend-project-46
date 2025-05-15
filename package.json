@@ -2,11 +2,11 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "bin": {
-    "gendiff": "src/cli.js"
+    "gendiff": "src/index.js"
   },
   "type": "module",
   "description": "[![Actions Status](https://github.com/immortal-p/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/immortal-p/frontend-project-46/actions)",
-  "main": "./src/cli.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
