@@ -1,5 +1,5 @@
 import genDiff from "../src/genDiff";
-import { parsersFile, parseTwoFiles}  from "../src/parsers";
+import { parsersFile, parseTwoFiles}  from "../src/parsers.js";
 import { test, expect} from '@jest/globals'
 
 test('genDiff', () => {
