@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1747381108804" clover="3.2.0">
-  <project timestamp="1747381108805" name="All files">
-    <metrics statements="29" coveredstatements="29" conditionals="10" coveredconditionals="9" methods="9" coveredmethods="9" elements="48" coveredelements="47" complexity="0" loc="29" ncloc="29" packages="1" files="2" classes="2"/>
+<coverage generated="1747383430133" clover="3.2.0">
+  <project timestamp="1747383430134" name="All files">
+    <metrics statements="29" coveredstatements="29" conditionals="10" coveredconditionals="10" methods="9" coveredmethods="9" elements="48" coveredelements="48" complexity="0" loc="29" ncloc="29" packages="1" files="2" classes="2"/>
     <file name="genDiff.js" path="/home/bargest/Документы/fons/proj/frontend-project-46/src/genDiff.js">
       <metrics statements="13" coveredstatements="13" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
       <line num="1" count="1" type="stmt"/>
@@ -19,21 +19,21 @@
       <line num="22" count="3" type="stmt"/>
     </file>
     <file name="parsers.js" path="/home/bargest/Документы/fons/proj/frontend-project-46/src/parsers.js">
-      <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="6"/>
+      <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
       <line num="6" count="1" type="stmt"/>
-      <line num="7" count="4" type="stmt"/>
+      <line num="7" count="6" type="stmt"/>
       <line num="8" count="2" type="stmt"/>
       <line num="9" count="2" type="stmt"/>
       <line num="12" count="1" type="stmt"/>
-      <line num="13" count="8" type="cond" truecount="1" falsecount="1"/>
-      <line num="15" count="8" type="stmt"/>
-      <line num="16" count="8" type="cond" truecount="2" falsecount="0"/>
+      <line num="13" count="10" type="cond" truecount="2" falsecount="0"/>
+      <line num="15" count="9" type="stmt"/>
+      <line num="16" count="9" type="cond" truecount="2" falsecount="0"/>
       <line num="18" count="1" type="stmt"/>
       <line num="21" count="1" type="stmt"/>
-      <line num="22" count="8" type="stmt"/>
-      <line num="23" count="8" type="stmt"/>
-      <line num="24" count="8" type="stmt"/>
-      <line num="25" count="8" type="stmt"/>
+      <line num="22" count="10" type="stmt"/>
+      <line num="23" count="10" type="stmt"/>
+      <line num="24" count="10" type="stmt"/>
+      <line num="25" count="10" type="stmt"/>
       <line num="28" count="1" type="stmt"/>
       <line num="29" count="2" type="stmt"/>
     </file>
