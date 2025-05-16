@@ -26,4 +26,3 @@ jobs:
       - run: npm ci
       - run: make lint
       - run: make test 
-      - run: NODE_OPTIONS=--experimental-vm-modules npx jest --coverage
