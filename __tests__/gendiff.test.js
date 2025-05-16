@@ -14,12 +14,6 @@ test('genDiff with different data types', () => {
     expect(genDiff(file3, file4)).toEqual(result)
 })
 
-test('get absolutePath', () => {
-  const absolutePath = '/home/bargest/Документы/base/file1.json';
-  const file1 = parsersFile('file1.json');
-  expect(file1).toEqual(parsersFile(absolutePath))
-})
-
 test('get relativePath', () => {
   const relativePath = './__fixtures__/file2.json'
   const file1 = parsersFile('file2.json')
