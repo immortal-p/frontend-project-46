@@ -1,26 +1,39 @@
-import genDiff from "../src/genDiff";
-import { parsersFile, parseTwoFiles}  from "../src/parsers.js";
-import { test, expect} from '@jest/globals'
+import { buildDiff, genDiff } from "../src/genDiff";
+import { parsersFile, parsersTwoFiles}  from "../src/parsers.js";
+import { test, expect } from "@jest/globals"
+
 
 test('genDiff', () => {
-  const [file1, file2] = parseTwoFiles('file1.yaml', 'file2.yaml');
-  const result = parsersFile('result1.txt')
-  expect(genDiff(file1, file2)).toEqual(result);
-})
-
-test('genDiff with different data types', () => {
-  const [file3, file4] = parseTwoFiles('file3.json', 'file4.json');
-  const result = parsersFile('result2.txt')
-    expect(genDiff(file3, file4)).toEqual(result)
-})
+  const [file1, file2] = parsersTwoFiles('file1.json', 'file2.json');
+  const correctResult = parsersFile('result.txt');
+  expect(genDiff(file1, file2)).toEqual(correctResult);
+});
 
 test('get relativePath', () => {
-  const relativePath = './__fixtures__/file2.json'
-  const file1 = parsersFile('file2.json')
+  const relativePath = './__fixtures__/file2.yaml'
+  const file1 = parsersFile('file2.yaml')
   expect(file1).toEqual(parsersFile(relativePath))
 })
 
-test('genDiff with empty objects', () => {
-    expect(genDiff({}, {})).toEqual('{\n}')
+test('throws error on type', () => {
+  const [file1, file2] = parsersTwoFiles('file1.yaml', 'file2.yaml');
+  expect(() => genDiff(file1, file2, 'formatJson')).toThrow();
 })
 
+test('buildDiff basic case', () => {
+  const obj1 = { a: 1 };
+  const obj2 = { a: 2 };
+  const result = buildDiff(obj1, obj2);
+  expect(result).toEqual([
+    { key: 'a', type: 'changed', oldValue: 1, newValue: 2 }
+  ]);
+});
+
+test('buildDiff with identical objects', () => {
+  const obj = { key: 'value' };
+  expect(buildDiff(obj, obj)).toEqual([{ key: 'key', type: 'unchanged', value: 'value' }]);
+})
+
+test('buildDiff wiht empty objects', () => {
+  expect(buildDiff({}, {})).toEqual([])
+})
