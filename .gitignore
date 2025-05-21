@@ -1,5 +1,5 @@
 /node_modules/
 *.log
 .env
-/coverage/*
-!coverage/icov.info
+coverage/*
+!coverage/coverage.icov.info
