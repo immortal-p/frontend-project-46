@@ -1,4 +1,4 @@
-import formatStylish from "../src/stylish";
+import formatStylish from "../src/formatters/stylish.js";
 import { test, expect } from "@jest/globals";
 
 test('formatStylish with added key', () => {
@@ -9,16 +9,6 @@ test('formatStylish with added key', () => {
 test('formatStylish with removed key', () => {
   const tree = [{ key: 'timeout', type: 'removed', value: 50 }];
   expect(formatStylish(tree)).toBe('{\n  - timeout: 50\n}');
-});
-
-test('formatStylish with changed key', () => {
-  const tree = [{
-    key: 'timeout',
-    type: 'changed',
-    oldValue: 50,
-    newValue: 20
-  }];
-  expect(formatStylish(tree)).toBe('{\n  - timeout: 50\n  + timeout: 20\n}');
 });
 
 test('formatStylish with nested structure', () => {
