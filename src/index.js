@@ -10,13 +10,13 @@ program
     .name('gendiff')
     .description('Compares two configuration files and shows a difference.')
     .version('1.0.0')
-    .option('-f, --format [type]', 'output format', 'stylish')
+    .option('-f, --format <type>', 'output format', 'stylish')
     .argument('<filePath1>', 'path to first file')
     .argument('<filePath2>', 'path to second file')
     .action((filePath1, filePath2, options) => {
         const [data1, data2] = parsersTwoFiles(filePath1, filePath2);
-        const format = options.format;
-        console.log(genDiff(data1, data2, format))
+        const result = genDiff(data1, data2, options.format)
+        console.log(result)
     })
 
 program.parse()

@@ -12,7 +12,6 @@ const FORMATS = {
 const getPath = (filePath) => {
   const fixturesPath = path.resolve(process.cwd(), '__fixtures__', filePath);
   if(fs.existsSync(fixturesPath)) return fixturesPath;
-
   return path.resolve(process.cwd( ), filePath);
 }
 
