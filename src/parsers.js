@@ -10,8 +10,6 @@ const FORMATS = {
 };
 
 const getPath = (filePath) => {
-  if(path.isAbsolute(filePath)) return filePath;
-
   const fixturesPath = path.resolve(process.cwd(), '__fixtures__', filePath);
   if(fs.existsSync(fixturesPath)) return fixturesPath;
 
@@ -25,11 +23,11 @@ const parsersFile  = (filePath) => {
   return FORMATS[ext](content);
 }
 
-const parseTwoFiles = (file1, file2) => {
+const parsersTwoFiles = (file1, file2) => {
   return [
     parsersFile(file1),
     parsersFile(file2),
   ]
 }
 
-export { parsersFile, parseTwoFiles};
+export { parsersFile, parsersTwoFiles};
