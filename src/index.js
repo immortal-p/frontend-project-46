@@ -13,20 +13,12 @@ program
     .option('-f, --format <type>', 'output format', 'stylish')
     .argument('<filePath1>', 'path to first file')
     .argument('<filePath2>', 'path to second file')
-    .action((filePath1, filePath2, options) => {
-        try {
-            const [data1, data2] = parsersTwoFiles(filePath1, filePath2);
-            const formatName = options.format;
-            const diff = genDiff(data1, data2, formatName);
-            console.log(diff);
-            console.log(filePath1, filePath2)
-        } catch (err) {
-            console.error(err.message);
-            process.exit(1);
-        }
+    .action((filePath1 = '', filePath2 = '', options) => {
+        const [data1, data2] = parsersTwoFiles(filePath1, filePath2);
+        const formatName = options.format;
+        const diff = genDiff(data1, data2, formatName);
+        console.log(diff);
     })
-    
-if (require.main === module) {
-  program.parse();
-}
+
+program.parse();
 
