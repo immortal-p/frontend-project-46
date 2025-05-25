@@ -26,7 +26,8 @@ program
     })
 
 if(process.argv.length <= 2){
-    program.help({error: false})
+    program.outputHelp();
+    process.exitCode = 0;
 }else{
     program.parse()
 }
