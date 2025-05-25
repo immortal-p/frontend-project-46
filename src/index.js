@@ -25,4 +25,9 @@ program
         }
     })
 
-program.parse()
+if(process.arcv.length <= 2){
+    program.help({error: false})
+}else{
+    program.parse()
+}
+
