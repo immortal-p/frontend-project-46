@@ -14,17 +14,9 @@ program
     .argument('<filePath2>', 'path to second file')
     .option('-f, --format <type>', 'output format', 'stylish')
     .action((filePath1, filePath2, options) => {
-        try {
-            if(!filePath1 || !filePath2) {
-                throw new Error('The path to the file was not specified')
-            }
-            const [data1, data2] = parsersTwoFiles(filePath1, filePath2);
-            const result = genDiff(data1, data2, options);
-            console.log(result)
-        } catch (error) {
-            console.error(`Error: ${error.message}`);
-            process.exit(1);
-        }
+        const [data1, data2] = parsersTwoFiles(filePath1, filePath2);
+        const result = genDiff(data1, data2, options);
+        console.log(result)
     })
 
 program.parse()
