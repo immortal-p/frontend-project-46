@@ -25,6 +25,8 @@ program
             process.exit(1);
         }
     })
-
-program.parse()
+    
+if (require.main === module) {
+  program.parse();
+}
 
