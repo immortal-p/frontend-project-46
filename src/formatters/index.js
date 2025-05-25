@@ -1,9 +1,11 @@
 import formatPlain from "./plain.js";
 import formatStylish from "./stylish.js";
+import stringify from "./jsonFormatter.js";
 
 const formatters = {
     stylish: formatStylish,
     plain: formatPlain,
+    json: stringify,
 }
 
 const format = (diff, formatName = 'stylish') => {
