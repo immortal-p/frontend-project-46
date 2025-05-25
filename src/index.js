@@ -19,16 +19,12 @@ program
             const formatName = options.format;
             const diff = genDiff(data1, data2, formatName);
             console.log(diff);
+            console.log(filePath1, filePath2)
         } catch (err) {
             console.error(err.message);
             process.exit(1);
         }
     })
 
-if(process.argv.length <= 2){
-    program.outputHelp();
-    process.exitCode = 0;
-}else{
-    program.parse()
-}
+program.parse()
 
