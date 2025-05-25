@@ -16,3 +16,6 @@
 
 #### Nested structures (JSON & YAML) in plain format
 [![asciicast](https://asciinema.org/a/4FPwLNne2zkj05dfWrja80MYL.svg)](https://asciinema.org/a/4FPwLNne2zkj05dfWrja80MYL)
+
+### Nested strucutres (JSON & YAML) in JSON format
+[![asciicast](https://asciinema.org/a/ZBQMH40CGR3cAikOWSkkCb2Xk.svg)](https://asciinema.org/a/ZBQMH40CGR3cAikOWSkkCb2Xk)
