@@ -9,6 +9,10 @@ const formatters = {
 }
 
 const format = (diff, formatName = 'stylish') => {
+    if(typeof formatName !== 'string') {
+        throw new Error(`Format name must be string, got ${typeof formatName}`);
+    }
+    
     const formatter = formatters[formatName];
     if(!formatter){
         throw new Error(`Unknown format: ${formatName}`);

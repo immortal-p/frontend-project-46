@@ -14,9 +14,16 @@ program
     .argument('<filePath2>', 'path to second file')
     .option('-f, --format <type>', 'output format', 'stylish')
     .action((filePath1, filePath2, options) => {
-        const [data1, data2] = parsersTwoFiles(filePath1, filePath2);
-        const result = genDiff(data1, data2, options);
-        console.log(result)
+        try{
+            if(!filePath1 || !filePath2) {
+                throw new Error('Both file paths are required');
+            }
+            const [data1, data2] = parsersTwoFiles(filePath1, filePath2);
+            const result = genDiff(data1, data2, options);
+            console.log(result)
+        }catch (error) {
+            console.error(error.message)
+        }
     })
 
 program.parse()
