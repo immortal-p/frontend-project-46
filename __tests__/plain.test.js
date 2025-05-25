@@ -5,7 +5,7 @@ import { test, expect } from '@jest/globals';
 
 test('formatPlain', () => {
     const [file1, file2] = parsersTwoFiles('file1.json', 'file2.json');
-    const result = parsersFile('result2.txt')
+    const result = parsersFile('resultPlain.txt')
     const diff = buildDiff(file1, file2)
     expect(formatPlain(diff)).toEqual(result)
 })
