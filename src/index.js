@@ -14,10 +14,15 @@ program
     .argument('<filePath1>', 'path to first file')
     .argument('<filePath2>', 'path to second file')
     .action((filePath1, filePath2, options) => {
-        const [data1, data2] = parsersTwoFiles(filePath1, filePath2);
-        const formatName = options.format;
-        const diff = genDiff(data1, data2, formatName);
-        console.log(diff);
+        try {
+            const [data1, data2] = parsersTwoFiles(filePath1, filePath2);
+            const formatName = options.format;
+            const diff = genDiff(data1, data2, formatName);
+            console.log(diff);
+        } catch (err) {
+            console.error(err.message);
+            process.exit(1);
+        }
     })
 
 program.parse()
