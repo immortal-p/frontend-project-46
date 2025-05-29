@@ -21,7 +21,7 @@ export default defineConfig([
       '@stylistic/indent': ['error', 2],
       '@stylistic/semi': ['error', 'never'],
       '@stylistic/comma-dangle': ['error', 'always-multiline'],
-      '@stylistic/padded-blocks': ['error', 'always'],
+      '@stylistic/padded-blocks': ['error', 'never'],
     },
   },
   {

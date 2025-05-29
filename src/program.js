@@ -2,7 +2,6 @@ import { Command } from 'commander'
 import genDiff from './genDiff.js'
 
 const program = () => {
-
   const program = new Command()
 
   program
@@ -13,14 +12,11 @@ const program = () => {
     .argument('<filePath1>', 'path to first file')
     .argument('<filePath2>', 'path to second file')
     .action((filePath1, filePath2, options) => {
-
       console.log(genDiff(filePath1, filePath2, options.format))
       return genDiff(filePath1, filePath2, options.format)
-
     })
 
   return program
-
 }
 
 export default program
