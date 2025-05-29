@@ -17,6 +17,7 @@ const genDiff = () => {
             const formatName = options.format;
             const diff = compare(data1, data2, formatName);
             console.log(diff);
+            return diff;
     })
 
     return program
