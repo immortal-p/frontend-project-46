@@ -1,26 +1,11 @@
-import { Command } from "commander";
-import { parsersTwoFiles } from "./parsers.js"
-import { compare } from "./compare.js";
- 
-const genDiff = () => {
-    const program = new Command();
+import { parsersTwoFiles } from './parsers.js';
+import format from './formatters/index.js';
+import buildDiff from './genDiff-core.js';
 
-    program
-        .name('gendiff')
-        .description('Compares two configuration files and shows a difference.')
-        .version('1.0.0')
-        .option('-f, --format <type>', 'output format', 'stylish')
-        .argument('<filePath1>', 'path to first file')
-        .argument('<filePath2>', 'path to second file')
-        .action((filePath1, filePath2, options) => {
-            const [data1, data2] = parsersTwoFiles(filePath1, filePath2);
-            const formatName = options.format;
-            const diff = compare(data1, data2, formatName);
-            console.log(diff);
-            return diff;
-    })
-
-    return program
+const genDiff = (filePath1, filePath2, formatName = 'stylish') => {
+    const [data1, data2] = parsersTwoFiles(filePath1, filePath2);
+    const diff = buildDiff(data1, data2);
+    return format(diff, formatName);
 }
 
-export default genDiff;
+export default genDiff
