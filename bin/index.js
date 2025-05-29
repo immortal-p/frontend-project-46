@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import initProgram from "../src/index.js";
+import initProgram from "../src/genDiff.js";
 
 const program = initProgram()
 
