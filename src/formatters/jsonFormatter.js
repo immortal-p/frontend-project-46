@@ -2,9 +2,9 @@ import _ from 'lodash'
 
 const INDENT_SIZE = 2
 
-const getIndent = depth => ' '.repeat(depth * INDENT_SIZE)
+const getIndent = (depth) => ' '.repeat(depth * INDENT_SIZE)
 
-const stringifyPrimitive = value => {
+const stringifyPrimitive = (value) => {
   if (_.isNull(value)) return 'null'
   if (_.isString(value)) return `"${value}"`
   return String(value)
@@ -20,7 +20,7 @@ const stringify = (data, depth = 0) => {
   if (_.isArray(data)) {
     if (data.length === 0) return '[]'
 
-    const items = data.map(item => {
+    const items = data.map((item) => {
       return closingIndent + stringify(item, depth + 1)
     })
 

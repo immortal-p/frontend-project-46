@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-const formatValue = value => {
+const formatValue = (value) => {
   if (value === null) return 'null'
   if (_.isObject(value)) return '[complex value]'
   if (typeof value === 'string') return `'${value}'`
@@ -8,7 +8,7 @@ const formatValue = value => {
 }
 
 const formatPlain = (diff, parentPath = '') => {
-  const lines = diff.map(data => {
+  const lines = diff.map((data) => {
     const currentPath = parentPath ? `${parentPath}.${data.key}` : data.key
 
     switch (data.type) {
@@ -26,7 +26,7 @@ const formatPlain = (diff, parentPath = '') => {
         throw new Error(`Unknown type: ${data.type}`)
     }
   })
-  return lines.filter(line => line !== null).join('\n')
+  return lines.filter((line) => line !== null).join('\n')
 }
 
 export default formatPlain
