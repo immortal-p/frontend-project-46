@@ -1,4 +1,4 @@
-import { buildDiff, genDiff } from "../src/genDiff";
+import { buildDiff, compare } from "../src/compare.js";
 import { parsersFile, parsersTwoFiles}  from "../src/parsers.js";
 import { test, expect, describe } from "@jest/globals"
 
@@ -38,16 +38,16 @@ describe('diff generator', () => {
     });
   });
 
-  describe('genDiff', () => {
+  describe('compare', () => {
     test('should use stylish as default format', () => {
       const [file1, file2] = parsersTwoFiles('file1.json', 'file2.json');
-      const result = genDiff(file1, file2);
+      const result = compare(file1, file2);
       expect(result).toEqual(parsersFile('resultStylish.txt'));
     });
 
     test('should throw error for invalid format', () => {
       const [file1, file2] = parsersTwoFiles('file1.yaml', 'file2.yaml');
-      expect(() => genDiff(file1, file2, 'invalidFormat')).toThrow();
+      expect(() => compare(file1, file2, 'invalidFormat')).toThrow();
     });
   })
 
