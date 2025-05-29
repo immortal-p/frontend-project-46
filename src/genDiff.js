@@ -1,38 +1,25 @@
-import _ from 'lodash';
-import format from './formatters/index.js';
+import { Command } from "commander";
+import { parsersTwoFiles } from "./parsers.js"
+import { compare } from "./compare.js";
+ 
+const genDiff = () => {
+    const program = new Command();
 
-const buildDiff = (obj1, obj2) => {
-    const keys = [...new Set([...Object.keys(obj1), ...Object.keys(obj2)])].sort((a, b) => a.localeCompare(b));
-
-    if(keys.length === 0) return []
-    return keys.map((key) => {
-        const val1 = obj1[key];
-        const val2 = obj2[key];
-
-        if(!Object.hasOwn(obj2, key)){
-            return { key, type: 'removed', value: val1};
-        };
-
-        if(!Object.hasOwn(obj1, key)){
-            return { key, type: 'added', value: val2 };
-        };
-
-        if(_.isObject(val1) && _.isObject(val2)){
-            return { key, type: 'nested', children: buildDiff(val1, val2) };
-        };
-
-        if(val1 !== val2){
-            return { key, type: 'changed', oldValue: val1, newValue: val2 };
-        };
-
-        return { key, type: 'unchanged', value: val1 };
-        
+    program
+        .name('gendiff')
+        .description('Compares two configuration files and shows a difference.')
+        .version('1.0.0')
+        .option('-f, --format <type>', 'output format', 'stylish')
+        .argument('<filePath1>', 'path to first file')
+        .argument('<filePath2>', 'path to second file')
+        .action((filePath1, filePath2, options) => {
+            const [data1, data2] = parsersTwoFiles(filePath1, filePath2);
+            const formatName = options.format;
+            const diff = compare(data1, data2, formatName);
+            console.log(diff);
     })
+
+    return program
 }
 
-const genDiff = (obj1, obj2, formatName) => {
-    const diff = buildDiff(obj1, obj2);
-    return format(diff, formatName);
-}
-
-export { buildDiff, genDiff };
+export default genDiff;
