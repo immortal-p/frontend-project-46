@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-const formatValue = (value) => {
+const formatValue = value => {
   if (value === null) return 'null'
   if (_.isObject(value)) return '[complex value]'
   if (typeof value === 'string') return `'${value}'`

@@ -1,10 +1,16 @@
 import js from '@eslint/js'
 import globals from 'globals'
 import { defineConfig } from 'eslint/config'
+import stylistic from '@stylistic/eslint-plugin'
 
 export default defineConfig([
   {
-    files: ['**/*.{js,mjs,cjs}'], plugins: { js }, extends: ['js/recommended'],
+    files: ['**/*.{js,mjs,cjs}'],
+    plugins: {
+      js,
+      '@stylistic': stylistic,
+    },
+    extends: ['js/recommended'],
     rules: {
       "@stylistic/no-multiple-empty-lines": ["error", { max: 1 }],
       "@stylistic/eol-last": ["error", "always"],
@@ -17,5 +23,10 @@ export default defineConfig([
       "@stylistic/comma-dangle": ["error", "always-multiline"],
     },
   },
-  { files: ['**/*.{js,mjs,cjs}'], languageOptions: { globals: globals.browser } },
+  {
+    files: ['**/*.{js,mjs,cjs}'],
+    languageOptions: {
+      globals: globals.browser,
+    },
+  },
 ])

@@ -2,8 +2,8 @@ import _ from 'lodash'
 
 const INDENT_SIZE = 4
 
-const getIndent = (depth) => ' '.repeat(depth * INDENT_SIZE - 2)
-const getBracketIndent = (depth) => ' '.repeat((depth - 1) * INDENT_SIZE)
+const getIndent = depth => ' '.repeat(depth * INDENT_SIZE - 2)
+const getBracketIndent = depth => ' '.repeat((depth - 1) * INDENT_SIZE)
 
 const formatValue = (value, depth) => {
   if (!_.isPlainObject(value)) {
@@ -14,7 +14,7 @@ const formatValue = (value, depth) => {
   const closingIndent = getBracketIndent(depth + 1)
 
   const keys = Object.keys(value)
-  const lines = keys.map((key) => {
+  const lines = keys.map(key => {
     return `${indent}  ${key}: ${formatValue(value[key], depth + 1)}`
   })
 
@@ -50,7 +50,7 @@ const formatData = (data, depth) => {
 }
 
 const formatStylish = (tree, depth = 1) => {
-  const lines = tree.flatMap((data) => formatData(data, depth))
+  const lines = tree.flatMap(data => formatData(data, depth))
   const closingIndent = getBracketIndent(depth)
   return `{\n${lines.join('\n')}\n${closingIndent}}`
 }

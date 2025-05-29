@@ -4,7 +4,7 @@
   "bin": {
     "gendiff": "bin/index.js"
   },
-  "main" : "./src/genDiff.js",
+  "main": "./src/genDiff.js",
   "type": "module",
   "description": "[![Actions Status](https://github.com/immortal-p/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/immortal-p/frontend-project-46/actions)",
   "scripts": {
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.26.0",
+    "@stylistic/eslint-plugin": "^4.4.0",
     "eslint": "^9.26.0",
     "eslint-plugin-node": "^11.1.0",
     "globals": "^16.1.0",
