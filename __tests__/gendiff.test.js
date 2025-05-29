@@ -1,7 +1,7 @@
-import buildDiff from "../src/genDiff-core.js";
-import genDiff from "../src/genDiff.js";
-import { parsersFile }  from "../src/parsers.js";
-import { test, expect, describe } from "@jest/globals"
+import buildDiff from '../src/genDiff-core.js';
+import genDiff from '../src/genDiff.js';
+import { parsersFile } from '../src/parsers.js';
+import { test, expect, describe } from '@jest/globals';
 
 describe('diff generator', () => {
   describe('buildDiff', () => {
@@ -14,11 +14,11 @@ describe('diff generator', () => {
     });
 
     test('should handle indentical objects', () => {
-      const obj = { key: 'value'};
+      const obj = { key: 'value' };
       expect(buildDiff(obj, obj)).toEqual([
         { key: 'key', type: 'unchanged', value: 'value' }
       ]);
-    })
+    });
 
     test('should return empty array for empty objects', () => {
       expect(buildDiff({}, {})).toEqual([]);
@@ -28,8 +28,8 @@ describe('diff generator', () => {
       const obj1 = { a: { b: 1 } };
       const obj2 = { a: { b: 2 } };
       expect(buildDiff(obj1, obj2)).toEqual([
-        { 
-          key: 'a', 
+        {
+          key: 'a',
           type: 'nested',
           children: [
             { key: 'b', type: 'changed', oldValue: 1, newValue: 2 }
@@ -48,7 +48,7 @@ describe('diff generator', () => {
     test('should throw error for invalid format', () => {
       expect(() => genDiff('file1.json', 'file2.json', 'invalidFormat')).toThrow();
     });
-  })
+  });
 
   describe('File Parsing', () => {
     test('should handle relative paths', () => {
@@ -59,5 +59,5 @@ describe('diff generator', () => {
     test('should throw for unsupported file types', () => {
       expect(() => parsersFile('invalid.xml')).toThrow();
     });
-  })
+  });
 });

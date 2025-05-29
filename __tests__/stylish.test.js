@@ -1,12 +1,12 @@
-import formatStylish from "../src/formatters/stylish.js";
-import genDiff from "../src/genDiff.js";
-import { parsersFile } from "../src/parsers.js";
-import { test, expect } from "@jest/globals";
+import formatStylish from '../src/formatters/stylish.js';
+import genDiff from '../src/genDiff.js';
+import { parsersFile } from '../src/parsers.js';
+import { test, expect } from '@jest/globals';
 
 test('formatStylish', () => {
   const result = parsersFile('resultStylish.txt');
-  expect(genDiff('file1.yaml', 'file2.json')).toEqual(result)
-})
+  expect(genDiff('file1.yaml', 'file2.json')).toEqual(result);
+});
 
 test('formatStylish with added key', () => {
   const tree = [{ key: 'host', type: 'added', value: 'hexlet.io' }];
@@ -32,6 +32,6 @@ test('formatStylish with nested structure', () => {
 });
 
 test('throws error on node type', () => {
-    const diff = [ { key: 'someKey', type: 'nova_type', value: 'val'}, ];
-    expect(() => formatStylish(diff)).toThrow()
-})
+  const diff = [ { key: 'someKey', type: 'nova_type', value: 'val'}, ];
+  expect(() => formatStylish(diff)).toThrow();
+});

@@ -15,37 +15,37 @@ const formatValue = (value, depth) => {
 
   const keys = Object.keys(value);
   const lines = keys.map((key) => {
-    return `${indent}  ${key}: ${formatValue(value[key], depth + 1)}` 
+    return `${indent}  ${key}: ${formatValue(value[key], depth + 1)}`; 
   });
 
   return `{\n${lines.join('\n')}\n${closingIndent}}`;
-}
+};
 
 const formatData = (data, depth) => {
   const indent = getIndent(depth);
   const { key } = data;
 
   switch (data.type) {
-    case 'added': 
-      return `${indent}+ ${key}: ${formatValue(data.value, depth)}`;
+  case 'added': 
+    return `${indent}+ ${key}: ${formatValue(data.value, depth)}`;
 
-    case 'removed':
-      return `${indent}- ${key}: ${formatValue(data.value, depth)}`;
+  case 'removed':
+    return `${indent}- ${key}: ${formatValue(data.value, depth)}`;
 
-    case 'unchanged':
-      return `${indent}  ${key}: ${formatValue(data.value, depth)}`
+  case 'unchanged':
+    return `${indent}  ${key}: ${formatValue(data.value, depth)}`;
 
-    case 'changed':
-      return [
-        `${indent}- ${key}: ${formatValue(data.oldValue, depth)}`,
-        `${indent}+ ${key}: ${formatValue(data.newValue, depth)}`
-      ];
+  case 'changed':
+    return [
+      `${indent}- ${key}: ${formatValue(data.oldValue, depth)}`,
+      `${indent}+ ${key}: ${formatValue(data.newValue, depth)}`
+    ];
 
-    case 'nested':
-      return `${indent}  ${key}: ${formatStylish(data.children, depth + 1)}`;
+  case 'nested':
+    return `${indent}  ${key}: ${formatStylish(data.children, depth + 1)}`;
 
-    default:
-      throw new Error(`Unknown type: ${data.type}`);
+  default:
+    throw new Error(`Unknown type: ${data.type}`);
   }
 };
 
@@ -55,4 +55,4 @@ const formatStylish = (tree, depth = 1) => {
   return `{\n${lines.join('\n')}\n${closingIndent}}`;
 };
 
-export default formatStylish
+export default formatStylish;
