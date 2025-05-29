@@ -2,7 +2,7 @@ import _ from 'lodash'
 
 const INDENT_SIZE = 2
 
-const getIndent = (depth) => ' '.repeat(depth * INDENT_SIZE)
+const getIndent = depth => ' '.repeat(depth * INDENT_SIZE)
 
 const stringifyPrimitive = (value) => {
   if (_.isNull(value)) return 'null'

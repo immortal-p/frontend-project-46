@@ -4,10 +4,10 @@ import yaml from 'yaml'
 import process from 'process'
 
 const FORMATS = {
-  '.json': (content) => JSON.parse(content),
-  '.yaml': (content) => yaml.parse(content),
-  '.yml': (content) => yaml.parse(content),
-  '.txt': (content) => content,
+  '.json': content => JSON.parse(content),
+  '.yaml': content => yaml.parse(content),
+  '.yml': content => yaml.parse(content),
+  '.txt': content => content,
 }
 
 const getPath = (filePath) => {

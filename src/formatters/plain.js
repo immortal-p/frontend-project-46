@@ -26,7 +26,7 @@ const formatPlain = (diff, parentPath = '') => {
         throw new Error(`Unknown type: ${data.type}`)
     }
   })
-  return lines.filter((line) => line !== null).join('\n')
+  return lines.filter(line => line !== null).join('\n')
 }
 
 export default formatPlain

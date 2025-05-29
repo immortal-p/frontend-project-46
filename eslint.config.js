@@ -16,7 +16,6 @@ export default defineConfig([
       '@stylistic/eol-last': ['error', 'always'],
       '@stylistic/keyword-spacing': ['error', { after: true }],
       '@stylistic/space-before-blocks': 'error',
-      '@stylistic/arrow-parens': ['error', 'always'],
       '@stylistic/no-trailing-spaces': 'error',
       '@stylistic/indent': ['error', 2],
       '@stylistic/semi': ['error', 'never'],
