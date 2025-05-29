@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-import initProgram from "../src/genDiff.js";
+import program from "../src/program.js";
 
-const program = initProgram()
-
-program.parse()
+program().parse();

@@ -1,5 +1,5 @@
 import formatPlain from "../src/formatters/plain.js";
-import { buildDiff } from "../src/compare.js";
+import buildDiff from "../src/genDiff-core.js";
 import { parsersFile, parsersTwoFiles}  from "../src/parsers.js";
 import { test, expect } from '@jest/globals';
 
