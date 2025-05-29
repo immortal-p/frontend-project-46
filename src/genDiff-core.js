@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import format from './formatters/index.js';
 
 const buildDiff = (obj1, obj2) => {
     const keys = [...new Set([...Object.keys(obj1), ...Object.keys(obj2)])].sort((a, b) => a.localeCompare(b));
@@ -30,9 +29,4 @@ const buildDiff = (obj1, obj2) => {
     })
 }
 
-const compare = (obj1, obj2, formatName) => {
-    const diff = buildDiff(obj1, obj2);
-    return format(diff, formatName);
-}
-
-export { buildDiff, compare };
+export default buildDiff
