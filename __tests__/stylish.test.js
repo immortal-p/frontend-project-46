@@ -1,12 +1,12 @@
 import formatStylish from "../src/formatters/stylish.js";
-import { genDiff } from "../src/genDiff.js";
+import { compare } from "../src/compare.js";
 import { parsersFile, parsersTwoFiles } from "../src/parsers.js";
 import { test, expect } from "@jest/globals";
 
 test('formatStylish', () => {
   const [data1, data2] = parsersTwoFiles('file1.yaml', 'file2.json');
   const result = parsersFile('resultStylish.txt');
-  expect(genDiff(data1, data2)).toEqual(result)
+  expect(compare(data1, data2)).toEqual(result)
 })
 
 test('formatStylish with added key', () => {
