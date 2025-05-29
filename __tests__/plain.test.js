@@ -1,6 +1,6 @@
 import formatPlain from '../src/formatters/plain.js'
 import buildDiff from '../src/genDiff-core.js'
-import { parsersFile, parsersTwoFiles}  from '../src/parsers.js'
+import { parsersFile, parsersTwoFiles } from '../src/parsers.js'
 import { test, expect } from '@jest/globals'
 
 test('formatPlain', () => {
@@ -11,6 +11,6 @@ test('formatPlain', () => {
 })
 
 test('thrwos error on node type', () => {
-  const diff = [ { key: 'someKey', type: 'clear', value: 'val'} ]
+  const diff = [{ key: 'someKey', type: 'clear', value: 'val' }]
   expect(() => formatPlain(diff)).toThrow()
 })

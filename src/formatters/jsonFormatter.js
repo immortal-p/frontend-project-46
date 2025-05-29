@@ -18,7 +18,7 @@ const stringify = (data, depth = 0) => {
     return stringifyPrimitive(data)
   }
   if (_.isArray(data)) {
-    if(data.length === 0) return '[]'
+    if (data.length === 0) return '[]'
 
     const items = data.map(item => {
       return closingIndent + stringify(item, depth + 1)
@@ -29,7 +29,7 @@ const stringify = (data, depth = 0) => {
 
   const entries = Object.entries(data)
   if (entries.length === 0) return '{}'
-  
+
   const lines = entries.map(([key, value]) => {
     const stringValue = _.isObject(value) ? stringify(value, depth + 1) : stringifyPrimitive(value)
     return `${closingIndent}"${key}": ${stringValue}`

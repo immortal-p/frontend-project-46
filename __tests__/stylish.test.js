@@ -32,6 +32,6 @@ test('formatStylish with nested structure', () => {
 })
 
 test('throws error on node type', () => {
-  const diff = [ { key: 'someKey', type: 'nova_type', value: 'val'} ]
+  const diff = [{ key: 'someKey', type: 'nova_type', value: 'val' }]
   expect(() => formatStylish(diff)).toThrow()
 })
