@@ -182,18 +182,22 @@ frontend-project-46/
 
 ## 🎥 Asciinema Demonstrations
 
-### Installation & Basic Usage
+### Basic Usage
 
-type here your asciinema link
+[![asciicast](https://asciinema.org/a/rPJAKzGuHHYNXY2ogbQiGiPGd.svg)](https://asciinema.org/a/rPJAKzGuHHYNXY2ogbQiGiPGd)
+
+### Two flat yaml-files comparsion
+
+[![asciicast](https://asciinema.org/a/WULQOYkHxTC5ZGxaJCIJhunrP.svg)](https://asciinema.org/a/WULQOYkHxTC5ZGxaJCIJhunrP)
 
 ### Stylish Format
 
-type here your asciinema link
+[![asciicast](https://asciinema.org/a/sBqCSYmM5S5qqYZW45g7Mmn1t.svg)](https://asciinema.org/a/sBqCSYmM5S5qqYZW45g7Mmn1t)
 
 ### Plain Format
 
-type here your asciinema link
+[![asciicast](https://asciinema.org/a/4FPwLNne2zkj05dfWrja80MYL.svg)](https://asciinema.org/a/4FPwLNne2zkj05dfWrja80MYL)
 
 ### JSON Format
 
-type here your asciinema link
+[![asciicast](https://asciinema.org/a/ZBQMH40CGR3cAikOWSkkCb2Xk.svg)](https://asciinema.org/a/ZBQMH40CGR3cAikOWSkkCb2Xk)
